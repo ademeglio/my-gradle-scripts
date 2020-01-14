@@ -1,0 +1,38 @@
+plugins {
+    id 'java'
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+
+project.group = "info.demeglio"
+// project.description = ''
+project.version = '0.0.1-snapshot'
+
+sourceCompatibility = '11'
+
+repositories {
+    jcenter()
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation('org.junit.jupiter:junit-jupiter-api:5.5.2')
+    testRuntimeOnly('org.junit.jupiter:junit-jupiter-engine:5.5.2')
+
+}
+
+test {
+    useJunitPlatform()
+}
+
+task buildSrcFolders {
+    description 'Builds default source folders'
+
+    doLast {
+        mkdir("src/main/java")
+        mkdir("src/test/java")
+    }
+}
+
+tasks.eclipse.dependsOn buildSrcFolders
