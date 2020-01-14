@@ -23,7 +23,8 @@ dependencies {
 }
 
 test {
-    useJunitPlatform()
+    //Junit 5 (Jupiter)
+    useJUnitPlatform()
 }
 
 task buildSrcFolders {
